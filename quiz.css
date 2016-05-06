@@ -1,0 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
+.cardWrapper {
+  max-width: 80%;
+}
