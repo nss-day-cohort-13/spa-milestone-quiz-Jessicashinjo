@@ -11,6 +11,7 @@ var CarLot = (function (CarLot) {
     inventoryLoader.addEventListener("load", function () {
       carInventory = JSON.parse(this.responseText);
       callback(carInventory);
+      CarLot.activateEvents();
     });
     inventoryLoader.addEventListener("error", function () {
       throw "data did not load";
