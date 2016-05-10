@@ -1,11 +1,13 @@
 var CarLot = (function (CarLot) {
 
-  CarLot.originalValues = function(value){
-    document.getElementById(value).style.border = "4px";
-    document.getElementById(value).style.background = "White";
-    console.log("2nd");
+	CarLot.originalValues = function(value){
+    value.removeAttribute("style");
+	};
+
+  CarLot.newValues = function(element, color){
+    element.setAttribute("style", `background: ${color}; border: 4px solid black;`);
   };
 
-  return CarLot;
+	return CarLot;
 
 })(CarLot || {});
