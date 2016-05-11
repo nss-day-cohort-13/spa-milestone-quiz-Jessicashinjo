@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: WhiteSmoke;
+}
+
+
+/*********
+Nav Bar
+*********/
+
+#header {
+	background: DodgerBlue;
+}
+
+.form-group {
+  margin-top: 3%;
+}
+
+.inputBar {
+  height: 30px;
+  width: 15%;
+  border-radius: .5em;
+}
+
+.buttonStyle {
+  float: left;
+  margin-left: 5%;
+}
+
+/*********
+Card
+*********/
+
+.cardWrapper {
+	max-width: 80%;
+}
+
+.carCard {
+	border: 2px solid black;
+  height: 300px;
+  border-radius: 2em;
+}
+
+.focusElement {
+	border: 2px solid blue;
+}
