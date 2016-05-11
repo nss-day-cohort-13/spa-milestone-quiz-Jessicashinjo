@@ -1,11 +1,13 @@
 
 function borderColor (inventory) {
 var colorValue = inventory.cars;
+	//changes the border colors of the card to match the color of the car.
 	colorValue.forEach(function (item){
 		document.getElementById(item.sku).style.borderColor = item.color;
 	});
 }
 
+//creates car cards
 function populatePage (inventory) {
 	function loopToDom(item){
 		sum += `<div id="${item.sku}" class="col-md-4 column carCard">
@@ -22,7 +24,8 @@ function populatePage (inventory) {
 	var carData = inventory.cars;
 	var domID = document.getElementById("insertToDom");
 	var sum = "";
-	// CarLot.activateEvents(carData);
+
+	//prints cards to the dom in rows of 3
 	carData.forEach(function(item, index){
 		if ((index + 1) % 3 === 0) {
 			sum += `<div class="row">`;

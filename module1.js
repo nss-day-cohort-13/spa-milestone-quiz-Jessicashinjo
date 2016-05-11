@@ -1,6 +1,7 @@
 var CarLot = (function (CarLot) {
 	var carInventory = [];
 
+	//loads the request and provides the json info to the callback
 	CarLot.loadInventory = function (callback) {
 		var inventoryLoader = new XMLHttpRequest();
 
