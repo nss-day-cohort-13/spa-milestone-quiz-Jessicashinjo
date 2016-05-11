@@ -14,7 +14,7 @@ function populatePage (inventory) {
 		<div>Sku: ${item.sku}</div>
 		<div>Price: $${item.price}</div>
 		<div>Color: ${item.color}</div>
-		<div>Purchased: ${item.purchased}</div>
+		<article>Purchased: ${item.purchased}</article>
 		</section>
 		<h4>Description:</h4>
 		<p>${item.description}</p></div>`;

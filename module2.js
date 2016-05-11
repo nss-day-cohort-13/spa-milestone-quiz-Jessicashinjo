@@ -5,13 +5,14 @@ var CarLot = (function (CarLot) {
   var carDescription;
 
   function bindHTMLToValue () {
-    console.log(carDescription);
     carDescription.innerHTML = inputText.value;
   }
 
   function changeText(carDescription){
+    if (carDescription !== null) {
     inputText.value = carDescription.innerHTML;
     inputText.addEventListener("input", bindHTMLToValue);
+    };
   }
 
     //calls function to remove the style attribute of the p tag if the value is not null
@@ -22,9 +23,21 @@ var CarLot = (function (CarLot) {
     }
   }
 
+  function buttonClick() {
+    var item = carDescription;
+    if (item.tagName === "ARTICLE") {
+      if (item.innerHTML === "Purchased: false") {
+        item.innerHTML = "Purchased: true";
+      } else {
+        item.innerHTML = "Purchased: false";
+      }
+    } else {
+      alert("Please click on a 'purchased' area");
+    }
+  }
+
   function chainReaction(){
     var cardIdDiv = event.target.closest("P");
-    console.log(cardIdDiv);
     carDescription = event.target;
     var color = "LightBlue";
     removeStyle();
@@ -33,6 +46,7 @@ var CarLot = (function (CarLot) {
     CarLot.newValues(carDescription, color);;
     }
     changeText(cardIdDiv);
+    button.addEventListener("click", buttonClick);
   };
 
   CarLot.activateEvents = function (inventory){
