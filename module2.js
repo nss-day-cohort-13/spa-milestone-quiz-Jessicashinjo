@@ -18,8 +18,12 @@ var CarLot = (function (CarLot) {
     //calls function to remove the style attribute of the p tag if the value is not null
   function removeStyle(){
     var pStyle = document.querySelector("p[style]");
+    var articleStyle = document.querySelector("article[style]");
     if (pStyle !== null) {
       CarLot.originalValues(pStyle);
+    }
+    if (articleStyle !== null) {
+      CarLot.originalValues(articleStyle);
     }
   }
 
@@ -40,9 +44,10 @@ var CarLot = (function (CarLot) {
     var cardIdDiv = event.target.closest("P");
     carDescription = event.target;
     var color = "LightBlue";
+    inputText.value = '';
     removeStyle();
     inputText.focus();
-    if (carDescription.tagName === "P") {
+    if (carDescription.tagName === "P" || carDescription.tagName === "ARTICLE") {
     CarLot.newValues(carDescription, color);;
     }
     changeText(cardIdDiv);
