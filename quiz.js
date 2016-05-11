@@ -35,7 +35,7 @@ function populatePage (inventory) {
 	});
 	domID.innerHTML = sum;
 	borderColor(inventory);
-	CarLot.addEventListenerCarCard(inventory);
+	CarLot.activateEvents(inventory);
 }
 
 
