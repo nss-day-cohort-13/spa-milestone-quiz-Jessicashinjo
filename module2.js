@@ -2,37 +2,14 @@ var CarLot = (function (CarLot) {
   var insertToDom = document.getElementById("insertToDom");
   var inputText = document.getElementById("inputText");
 
-	CarLot.activateEvents = function () {
-    changeBorderAndColor();
-    // inputText.focus();
-	};
-
-  function emptyTextInput (){
-    inputText.value = "";
-  }
-
   function changeText(element){
-    inputText.addEventListener("input", function(){
+    inputText.value = "";
+    inputText.addEventListener("input", function(event){
       element.innerHTML = inputText.value;
     })
   }
 
-  //event listener which calls function to change color and border of the selected element.
-  function changeBorderAndColor() {
-    insertToDom.addEventListener("click", function (event) {
-      removeStyle();
-      emptyTextInput();
-      var element = event.target;
-      var color = "LightBlue";
-      if (element.tagName === "P") {
-      CarLot.newValues(element, color);;
-      inputText.focus();
-      changeText(element);
-      }
-    });
-  }
-
-  //calls function to remove the style attribute of the p tag if the value is not null
+    //calls function to remove the style attribute of the p tag if the value is not null
   function removeStyle(){
     var element = document.querySelector("p[style]");
     if (element !== null) {
@@ -40,6 +17,39 @@ var CarLot = (function (CarLot) {
     }
   }
 
+  //Activates all of the events.
+  // CarLot.activateEvents = function (carData) {
+  //   insertToDom.addEventListener("click", function (event) {
+  //     // var skuDiv = event.target.closest("P");
+  //     // console.log(skuDiv);
+  //     var element = event.target;
+  //     var color = "LightBlue";
+  //     removeStyle();
+  //     inputText.focus();
+  //     changeText(skuDiv);
+  //     if (element.tagName === "P") {
+  //     CarLot.newValues(element, color);;
+  //     }
+  //   });
+  // }
+
+  CarLot.addEventListenerCarCard = function (inventory){
+    var cars = inventory.cars;
+    cars.forEach(function (car){
+      document.getElementById(car.sku).addEventListener("click", function(){
+        var cardIdDiv = event.target.closest("P");
+        console.log(cardIdDiv);
+        var element = event.target;
+        var color = "LightBlue";
+        removeStyle();
+        inputText.focus();
+        changeText(cardIdDiv);
+        if (element.tagName === "P") {
+        CarLot.newValues(element, color);;
+        }
+      });
+    });
+  };
 
 
 	return CarLot;

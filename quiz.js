@@ -1,6 +1,3 @@
-// function changeDivColor(value){
-
-// }
 
 function borderColor (inventory) {
 var colorValue = inventory.cars;
@@ -11,13 +8,21 @@ var colorValue = inventory.cars;
 
 function populatePage (inventory) {
 	function loopToDom(item){
-		sum += `<div id="${item.sku}" class="col-md-4 column carCard"> <h3>${item.year} ${item.make} ${item.model}
-			</h3><section class="listItems"><p>Sku: ${item.sku}</p><p>Price: $${item.price}</p> <p>Color: ${item.color}
-			</p><p>Purchased: ${item.purchased}</p><p>Description: ${item.description}</p></section></div>`;
+		sum += `<div id="${item.sku}" class="col-md-4 column carCard">
+		<h3>${item.year} ${item.make} ${item.model}</h3>
+		<section class="listItems">
+		<div>Sku: ${item.sku}</div>
+		<div>Price: $${item.price}</div>
+		<div>Color: ${item.color}</div>
+		<div>Purchased: ${item.purchased}</div>
+		</section>
+		<h4>Description:</h4>
+		<p>${item.description}</p></div>`;
 	}
 	var carData = inventory.cars;
 	var domID = document.getElementById("insertToDom");
 	var sum = "";
+	// CarLot.activateEvents(carData);
 	carData.forEach(function(item, index){
 		if ((index + 1) % 3 === 0) {
 			sum += `<div class="row">`;
@@ -26,10 +31,11 @@ function populatePage (inventory) {
 		} else {
 			loopToDom(item);
 		}
+
 	});
 	domID.innerHTML = sum;
 	borderColor(inventory);
-	CarLot.activateEvents();
+	CarLot.addEventListenerCarCard(inventory);
 }
 
 
